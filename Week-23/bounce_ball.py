@@ -1,6 +1,7 @@
 import pygame, sys
 pygame.init()
 screen = pygame.display.set_mode([640,480])
+print("Screen width is: " + str(screen.get_width()))
 screen.fill([255, 255, 255])
 my_ball = pygame.image.load('wackyball.bmp')
 x = 50
