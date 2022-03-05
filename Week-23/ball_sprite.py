@@ -3,19 +3,19 @@ pygame.init()
 screen = pygame.display.set_mode([640,480])
 screen.fill([255, 255, 255])
 
-class myBall(pygame.sprite.Sprite):
-    def __init__(self, image, location):
+class Ball(pygame.sprite.Sprite):
+    def __init__(self, image, location, speed):
         pygame.sprite.Sprite.__init__(self)
-        self.ballImage = pygame.image.load(image)
-        self.rect = self.ballImage.get_rect()
+        self.image = pygame.image.load(image)
+        self.rect = self.image.get_rect()
         self.rect.left, self.rect.top = location
         self.speed = speed
         
     def move(self):
         self.rect = self.rect.move(self.speed)
-        if self.rect.left < 0 or self.rect.right > width:
+        if self.rect.left < 0 or self.rect.right > 640:
             self.speed[0] = -self.speed[0]
-        if self.rect.top < 0 or self.rect.bottom > height:
+        if self.rect.top < 0 or self.rect.bottom > 480:
             self.speed[1] = -self.speed[1]
         
 img_file = "wackyball.bmp"
